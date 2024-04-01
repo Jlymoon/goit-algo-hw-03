@@ -85,13 +85,12 @@ def get_upcoming_birthdays(users):
             else:
                 congratulation_date = birthday_this_year
 
-            # Перевірка чи вже є користувачі з такою самою датою народження
             if birthday_this_year not in birthdays_dict:
                 birthdays_dict[birthday_this_year] = {"congratulation_date": congratulation_date, "users": [user["name"]]}
             else:
                 birthdays_dict[birthday_this_year]["users"].append(user["name"])
 
-    # Додаємо користувачів з однаковою датою народження в результат
+   
     for date, data in birthdays_dict.items():
         for name in data["users"]:
             days_until_birthday = (data["congratulation_date"] - today).days
